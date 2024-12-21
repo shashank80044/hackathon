@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+ body{ 
+  margin:0;
+  background-color:black;
+  box-sizing: border-box; 
+  overflow: hidden; 
+  display: flex;
+  justify-content:center; 
+ }
+.container{
+  display:flex;
+  justify-content:center; 
+  position:relative;    
+  height:1800px;
+  top: 150px;
+  width:1500px;    
+  background-color :white;/*rgb(0,0,0,0.5);*/
+  z-index:1;
+  border: 2px solid black;
+  box-shadow:inset -5px -5px rgba(0 , 0  ,0 , 0.5);
+  border-radius: 100px;
+} 
+ .container h1{
+  color:red;/*rgb(226, 229, 233)*/;
+  font-size:150px;
+  height:140px;
+  border-bottom:10px solid rgba(255,255,255,0.5);
+  margin:50px;
+  height:200px;
+  left:400px;
+}
+.google{
+  width:100px;
+  position:absolute;
+  object-fit: cover;
+  height:100px;
+  right: 40px;
+}
+.twitter{
+  width:100px;
+  height:100px;
+  left:25px; 
+}
+.link{
+  position:absolute;   
+  height:300px;
+  width:400px;   
+  overflow:hidden ;
+  margin-top: 1500px;
+}
+h2{
+  font-size:50px;
+  text-align: center;
+  color: rgb(29, 176, 176);
+}
+.inf{
+  position: absolute;  
+  background-color:white;/*rgb(0,0,0,0.5);*/
+  margin-top:380px; 
+  width:1100px; 
+  left:280px;
+  height:800px; 
+}
+.inp{
+ /* background-color:rgb(212, 113, 113);*/
+  height:100px;
+  width:800px;
+  color:rgb(7, 53, 118);
+/*padding-top:40px ;*/
+  font-size:55px;
+  border-color:#150410;
+  border-width: 25px;
+}
+.lab{
+  font-size:70px;  
+  color: black;/*aliceblue*/;
+}
+#phn{
+  position: relative;    
+  left:60px;   
+}
+#em{
+  position: relative;    
+  left:60px;
+  margin-top:20px;   
+}
+#pass{
+  position: relative;    
+  left:40px;
+  width:700px;
+  margin-top:20px;   
+}
+#db{
+  position: relative;    
+  left:60px;
+  margin-top:20px;   
+}
+#adh{
+  position: relative;    
+  left:40px;
+  width:680px;
+  margin-top:20px;   
+}
+#sub{
+  position:relative;
+  height:90px;
+  width:90px;
+  font-size:35px;
+  background-color: brown;    
+}
+
+
+
+
+a{
+  text-align:center;
+  color:aliceblue; 
+  text-align: none;
+  border:none;
+}
+.para1{
+  position:absolute; 
+  font-size:55px;
+  color:black;
+  top:1400px;
+  left:250px; 
+}
+.para2{
+  position:absolute; 
+  font-size:55px;
+  color:black;
+  top:1400px; 
+  right:100px;  
+}
+.container1{
+  position:relative;   
+  display: flex;
+  justify-content:center;
+  padding: 15px 25px;
+  font-size: 46px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+/*  color: #fff;*/
+  background-color: #df0644;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  height:150px;
+  width:170px;
+ top:1235px;
+ right:180px;
+}
+.container1:hover {background-color: #150410}
+
+.container1:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.button1{
+ font-size:55px;
+ color:white;
+  background-color: #e70a1d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  height:150px;
+  width:170px; 
+}
+ </style>   
+</head>
+<body>
+
+<div class="container">
+  <form action="" class="inf">
+    <label class="lab" for="phone">Phone:</label>  
+    <input type="tel" class="inp" id="phn" placeholder="Enter your phone number" name="phone">
+    <br>
+    <label class="lab" for="email">Email:</label>  
+    <input type="tel" id="em" class="inp" placeholder="Enter your email" name="email">
+    <br>
+    <label class="lab" for="password">Password:</label>  
+    <input type="password" id="pass" class="inp" placeholder="Enter password" name="pass">
+    <br>
+    <label class="lab" for="dob">DOB:</label>  
+    <input type="text" class="inp" id="db" placeholder="Enter your DOB" name="dob">
+    <br>
+    <label class="lab" for="adh">Aadhar no:</label>  
+    <input type="number" class="inp" id="adh" placeholder="Enter your Aadhar number" name="adh">
+  </form>
+
+  <h1>Login</h1>
+  <div class="container1">
+
+    <button class="button1" type="button" onclick="goToSecondPage()">Submit</button>
+  </div>
+  <div class="link"> 
+    <h2>Login with</h2>   
+    <a href="https://www.google.com">   
+      <img class="google" src="WhatsApp Image 2024-12-19 at 21.19.34 (1).jpeg" alt="">   
+    </a>
+    <a href="https://www.x.com">
+      <img class="twitter" src="WhatsApp Image 2024-12-19 at 21.19.34.jpeg" alt="">   
+    </a>
+  </div>
+
+  <a href="web3third.html" class="para1">Student</a>  
+  <a href="" class="para2">Teacher</a> 
+</div>
+
+<!-- Button with type "button" -->
+
+<script>
+  function goToSecondPage() {
+    window.location.href = 'web3third.html';
+  }
+</script>
+
+</body>
+</html>

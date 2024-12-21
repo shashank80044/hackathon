@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+body {
+   margin: 0px;
+   box-sizing: border-box;
+   display: flex;
+   padding: 0px;
+   justify-content: center;
+   align-items: center;
+  background-color: rgb(0,0,0,0.5);;
+}
+
+.slider { 
+   height:480px;
+   width: 970px;
+   overflow: hidden;
+   position: relative; /* Allow positioning of elements inside */
+}
+
+.slides {
+   height:480px;
+   width:970px;
+   border-radius: 10px;
+   display: flex;
+   transition: 1s;
+}
+
+.slides input {
+   display: none;
+}
+
+.slide {
+   width: 100%;
+   transition: 1s;
+   
+}
+
+.slide img {
+   width: 970px;
+   height: 480px;
+   object-fit: cover;
+   overflow:hidden;
+}
+
+.navigation {
+   position: absolute;
+   width: 950px;
+   margin-top: -40px;
+   display: flex;
+   justify-content: center;
+   z-index: 2;
+}
+
+.btn {
+   border: 2px solid #00F9FF;
+   padding: 5px;
+   width: 30px;
+   border-radius: 100px;
+   transition: 1s;
+   cursor: pointer;
+}
+
+.btn:not(:last-child) {
+   margin-right: 40px;
+}
+
+.btn:hover {
+   background: #00F9FF;
+}
+
+#btn1:checked ~ .first {
+   margin-left: 0%;
+}
+
+#btn2:checked ~ .first {
+   margin-left: -100%;
+}
+
+#btn3:checked ~ .first {
+   margin-left: -200%;
+}
+
+#btn4:checked ~ .first {
+   margin-left: -300%;
+}
+
+.autonavigation {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   width: 950px;
+   margin-top: 439px;
+   visibility: hidden; /* Hide by default */
+   z-index: 1;
+}
+
+.autonavigation div {
+   border: 2px solid #00F9FF;
+   padding: 5px;
+   width: 30px;
+   border-radius: 100px;
+   transition: 1s;
+   cursor: pointer;
+}
+.autonavigation div:not(:last-child){
+ margin-right:40px;  
+}
+/* Show autonavigation when the corresponding radio button is checked */
+#btn1:checked ~ .autonavigation.autobt1{
+   visibility: visible;
+}   
+
+#btn2:checked ~ .autonavigation.autobt2{
+   visibility: visible;
+}  
+
+#btn3:checked ~ .autonavigation.autobt3{
+   visibility: visible;
+}   
+
+#btn4:checked ~ .autonavigation.autobt4 {
+   visibility: visible;
+}
+
+#btn1:checked ~ .autonavigation .autobt1{
+   background: #00F9FF;
+}
+#btn2:checked ~ .autonavigation .autobt2{
+   background: #00F9FF;  
+}
+#btn3:checked ~ .autonavigation .autobt3{
+   background: #00F9FF;  
+}
+#btn4:checked ~ .autonavigation .autobt4 {
+   background: #00F9FF;
+}
+
+#btn1:checked ~ .navigation .btn:nth-child(1){
+   background: #00F9FF;
+}  
+
+#btn2:checked ~ .navigation .btn:nth-child(2){
+   background: #00F9FF;
+}   
+
+#btn3:checked ~ .navigation .btn:nth-child(3){
+   background: #00F9FF;
+}   
+
+#btn4:checked ~ .navigation .btn:nth-child(4) {
+   background: #00F9FF;
+}
+.card1{
+position:absolute;
+background-color: aliceblue; 
+height:850px;
+width:760px;
+left:1 ;  
+top:500px;
+left:10px;
+box-shadow:inset -15px -15px rgba(25, 76, 95, 0.5);
+border-radius: 45px;
+}
+.card2{
+   position:absolute;
+background-color: aliceblue; 
+height:850px;
+width:760px;
+left:1 ;  
+top:500px;
+left:800px;
+box-shadow:inset -15px -15px rgba(25, 76, 95, 0.5);
+border-radius: 45px;   
+}
+.card3{
+   position:absolute;
+background-color: aliceblue; 
+height:850px;
+width:760px;
+left:900px;  
+top:500px;
+left:1590px;
+box-shadow:inset -15px -15px rgba(25, 76, 95, 0.5);
+border-radius: 45px;   
+}
+.card4{
+   position:absolute;
+background-color: aliceblue; 
+height:850px;
+width:760px;
+left:1100px;  
+top:500px;
+left:2380px;
+box-shadow:inset -15px -15px rgba(25, 76, 95, 0.5);
+border-radius: 45px;   
+}
+.card5{
+   position:absolute;
+background-color: aliceblue; 
+height:850px;
+width:760px;
+left:1100px;  
+top:500px;
+left:3200px;
+box-shadow:inset -15px -15px rgba(25, 76, 95, 0.5);
+border-radius: 45px;   
+}
+.card6{
+   position:absolute;
+background-color: aliceblue; 
+height:850px;
+width:680px;  
+top:500px;
+left:4000px;
+box-shadow:inset -15px -15px rgba(25, 76, 95, 0.5);
+border-radius: 45px;   
+}
+.p1{
+position:relative;
+top:-452px;   
+text-align: center;
+font-size:80px;  
+}
+.p2{
+position:relative;
+top:-452px;   
+text-align: center;
+font-size:80px;     
+}
+.p3{
+position:relative;
+top:-452px;   
+text-align: center;
+font-size:80px;     
+}
+.p4{
+position:relative;
+top:-452px;   
+text-align: center;
+font-size:80px;     
+}
+.p5{
+position:relative;
+top:-452px;   
+text-align: center;
+font-size:80px;     
+}
+.p6{
+position:relative;
+top:-452px;   
+text-align: center;
+font-size:80px;     
+}
+.img1{
+position:relative;
+height:380px;
+width:730px;
+top:10px;
+border-radius:45px;   
+}
+.img2{
+   position:relative;
+height:380px;
+width:730px;
+top:10px;
+border-radius:45px;   
+  
+}
+.img3{
+   position:relative;
+height:380px;
+width:730px;
+top:10px;
+border-radius:45px;   
+  
+}
+.img4{
+   position:relative;
+height:380px;
+width:730px;
+top:10px;
+border-radius:45px;   
+  
+}
+.img5{
+   position:relative;
+height:380px;
+width:730px;
+top:10px;
+border-radius:45px;   
+  
+}
+.img6{
+   position:relative;
+height:380px;
+width:680px;
+top:10px;
+border-radius:45px;   
+  
+}
+.cont1{
+   position:absolute;   
+font-size:50px;   
+top:340px;
+}
+.cont2{
+position:absolute;   
+font-size:50px;   
+top:340px
+}
+.cont3{
+position:absolute;   
+font-size:50px;   
+top:340px
+}
+.cont4{
+position:absolute;   
+font-size:50px;   
+top:340px
+}
+.cont5{
+position:absolute;   
+font-size:50px;   
+top:340px
+}
+.cont6{
+position:absolute;   
+font-size:50px;   
+top:340px
+}
+.mn-content{
+display:flex;
+justify-content:center;
+width:100%;
+height:480px;
+background-color:rgb(33, 18, 17 );
+}
+   </style>
+</head>
+
+<body>
+   <div class="mn-content">
+   <div class="slider">
+      <div class="slides">
+         <input type="radio" name="hello"  id="btn1">
+         <input type="radio" name="hello" id="btn2">
+         <input type="radio" name="hello" id="btn3">
+         <input type="radio" name="hello" id="btn4">
+         <div class="slide first ">
+            <img src="Screenshot 2024-12-20 012352.png" alt="">
+         </div>
+         <div class="slide">
+            <img src="Screenshot 2024-12-20 012503.png" alt="">
+         </div>
+         <div class="slide">
+            <img src="Screenshot 2024-12-20 012552.png" alt="">
+         </div>
+         <div class="slide">
+            <img src="Screenshot 2024-12-20 012733.png" alt="">
+         </div>
+         <div class="autonavigation">
+            <div class="autobt1"></div>
+            <div class="autobt2"></div>
+            <div class="autobt3"></div>
+            <div class="autobt4"></div>
+         </div>
+      </div>
+      <div class="navigation">
+         <label for="btn1" class="btn"></label>
+         <label for="btn2" class="btn"></label>
+         <label for="btn3" class="btn"></label>
+         <label for="btn4" class="btn"></label>
+      </div>
+     <img src="Screenshot 2024-12-20 201734.png" class="img2"> 
+   </div>
+   </div>
+</div>
+   <div class="card1">
+     <img src="Screenshot 2024-12-20 191445.png" class="img1"> 
+    <p class="p1">cabbage</p>
+    <p class="cont1">Rich in Nutrients: Cabbage is a low-calorie vegetable loaded with vitamins and minerals, 
+      
+      including vitamin C, vitamin K, folate, and potassium. It also contains smaller amounts of calcium, magnesium, and iron.
+
+      High in Fiber: 
+   </p>
+   </div>
+   <div class="card2">
+      <img src="Screenshot 2024-12-20 211629.png" class="img2">  
+     <p class="p2">carrot</p>
+     <p class="cont2">
+      Carrots are an excellent source of vitamins and minerals, especially;
+      Vitamin A: Carrots are high in beta-carotene, which the body converts into vitamin A.
+   
+    </p>
+    </div>
+    </p>
+    </div>
+    <div class="card3">
+      <img src="Screenshot 2024-12-20 212914.png" class="img3">  
+     <p class="p3">Broccoli</p>
+     <p class="cont3">
+      Carrots are an excellent source of vitamins and minerals, especially;
+      Vitamin A: Carrots are high in beta-carotene, which the body converts into vitamin A.
+   
+    </p>
+    </div>
+    </p>
+    </div>
+    <div class="card4">
+      <img src="Screenshot 2024-12-20 214211.png" class="img4">  
+     <p class="p4">spineech</p>
+     <p class="cont4">
+      Rich in Nutrients: Spinach is packed with essential vitamins and minerals, including vitamin K, vitamin A, vitamin C, folate, iron, and magnesium. These nutrients support overall health and contribute to various bodily functions.
+
+    </p>
+    </div>  
+    <div class="card5">
+      <img src="Screenshot 2024-12-20 220051.png" class="img5">  
+     <p class="p5">Jack Fruit</p>
+     <p class="cont5">
+      Jackfruit is an excellent source of essential 
+      nutrients like vitamin C, potassium, fiber, and antioxidants.
+       It also contains vitamins A, B6, and folate, which are important for immune function,
+       eye health, and metabolism.    
+    </p>
+    </div>  
+    <div class="card6">
+      <img src="Screenshot 2024-12-20 221029.png" class="img6">  
+     <p class="p6">Jack Fruit</p>
+     <p class="cont6">
+      Soothes indigestion: Mint can help relieve indigestion and bloating by 
+      relaxing the muscles in the digestive tract and improving the flow of bile. 
+      It is often used in teas for this purpose.
+   
+         
+    </p>
+    </div>   
+   <script>
+   var counter = 1;
+setInterval(function() {
+   document.getElementById('btn' + counter).checked = true; // This will trigger the radio buttons to change
+   counter++;
+   if (counter > 4) {
+        counter = 1;
+    
+   } },2500);
+   </script>
+</body>
+
+</html>
